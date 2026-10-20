@@ -1,0 +1,63 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Note (2026-09-14): قالب متغيرات البيئة بلا أسرار — يُرفع إلى git.
+!.env.example
+
+# ASP.NET Core migration (ProjectTracker.Web)
+# Note: the compiled UI in ProjectTracker.Web/wwwroot IS committed (so `dotnet run` needs no Node);
+# only build outputs and the UI's node_modules / intermediate output are ignored.
+**/bin/
+**/obj/
+ProjectTracker.Web/ClientApp/node_modules/
+ProjectTracker.Web/ClientApp/.next/
+ProjectTracker.Web/ClientApp/out/
+ProjectTracker.Web/ClientApp/next-env.d.ts
+ProjectTracker.Web/ClientApp/tsconfig.tsbuildinfo
+ProjectTracker.Web/appsettings.*.local.json
+ProjectTracker.Web/appsettings.Development.json
+TestResults/
+*.user
+
+# SonarQube
+.sonarqube/
+.scannerwork/

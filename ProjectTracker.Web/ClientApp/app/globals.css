@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+/*
+  ============================================================================
+  رموز التصميم (Design tokens)
+  ============================================================================
+  ألوان العلامة (--color-pc-brand-*)، والرماديات، والألوان الدلالية، وعائلة لون التمييز
+  --color-pc-accent-*، ومسافات شبكة 8px، وتوكنز الطباعة. لتغيير هوية النظام عدّل
+  القيم هنا وحدها؛ أسماء التوكنز ثابتة وتستعملها كل ملفات الواجهة.
+  البنية مستلهمة من نظام التصميم المفتوح "@dev-dga/tokens"
+  (https://github.com/DevDhaif/dev-dga-hub).
+  ============================================================================
+*/
+@theme {
+  /* ── ألوان العلامة الأساسية — الأزرق ──────────
+     المراسي الثلاثة: 900 = #0B213D (كحلي داكن)،
+     600 = #143A6C (أزرق أساسي)، 50 = #E8ECF2 (أزرق فاتح).
+     بقية الدرجات مشتقة رياضيًا بمزج خطي بين هذه المراسي. */
+  --color-pc-brand-25: #F6F8FA;
+  --color-pc-brand-50: #E8ECF2;
+  --color-pc-brand-100: #CFD7E2;
+  --color-pc-brand-200: #ADBBCD;
+  --color-pc-brand-300: #899CB6;
+  --color-pc-brand-400: #657E9F;
+  --color-pc-brand-500: #3E5E87;
+  --color-pc-brand-600: #143A6C;
+  --color-pc-brand-700: #0F2C52;
+  --color-pc-brand-800: #0D2647;
+  --color-pc-brand-900: #0B213D;
+  --color-pc-brand-950: #071426;
+
+  /* ── لون التمييز: بنفسجي — شارات وتفاصيل محدودة فقط ────────
+     المرساة: 600 = #562E9C. الدرجات الأفتح مزج مع الأبيض،
+     والأدكن ضرب خطي في معامل إضاءة. ممنوع استخدامه كلون أساسي للأزرار. */
+  --color-pc-accent-50: #F1EEF7;
+  --color-pc-accent-100: #DDD5EB;
+  --color-pc-accent-200: #BBABD7;
+  --color-pc-accent-300: #9A82C4;
+  --color-pc-accent-400: #7C5CB2;
+  --color-pc-accent-500: #6540A6;
+  --color-pc-accent-600: #562E9C;
+  --color-pc-accent-700: #45257D;
+  --color-pc-accent-800: #361D61;
+  --color-pc-accent-900: #271546;
+
+  /* ── الرمادي المحايد ─────────────────────────────────────────────
+     المراسي: 900 = #1A1A1A (نص أساسي)، 600 = #555555 (نص ثانوي)،
+     300 = #C9C9C9 (حدود). 500 = #767676 مختار عمدًا ليحقق 4.54:1 على الأبيض
+     (أدنى قيمة تمرّ WCAG AA للنص العادي) لأن 33 موضعًا في الكود يستخدمه كنص
+     مساعد. 400 = #8A8A8A يحقق 3.45:1 (حد العناصر الرسومية وحدود العناصر التفاعلية
+     — تحديث 2026-09-14: كان #949494، وحلّ محل توكن border-strong الاستثنائي الملغى).
+     ⚠ gray-400 ليس لونًا للنص إطلاقًا. */
+  --color-pc-gray-25: #FCFCFC;
+  --color-pc-gray-50: #F7F7F7;
+  --color-pc-gray-100: #F0F0F0;
+  --color-pc-gray-200: #E2E2E2;
+  --color-pc-gray-300: #C9C9C9;
+  --color-pc-gray-400: #8A8A8A;
+  --color-pc-gray-500: #767676;
+  --color-pc-gray-600: #555555;
+  --color-pc-gray-700: #414141;
+  --color-pc-gray-800: #2C2C2C;
+  --color-pc-gray-900: #1A1A1A;
+  --color-pc-gray-950: #0D0D0D;
+
+  /* حدود: الافتراضي من إرشادات التصميم (#C9C9C9 = 1.6:1، للفواصل الزخرفية فقط).
+     تحديث 2026-09-14: أُلغي --color-pc-border-strong؛ حدود العناصر التفاعلية تستخدم الآن pc-gray-400 (#8A8A8A) مباشرة من المقياس. */
+  --color-pc-border: #C9C9C9;
+
+  /* ── ألوان دلالية ───────────────────────────────────────────────
+     المراسي هي درجة 600 في كل عائلة: نجاح #1B5E20 / تنبيه #8A4B08 /
+     خطأ #9B2226 / معلومة #143A6C (نفس الأزرق الأساسي).
+     درجات 50/100 مشتقة بتثبيت درجة اللون (hue) ورفع الإضاءة، ودرجة 800 بضرب
+     خطي 0.72. قاعدة إرشادات التصميم: اللون وحده لا ينقل المعنى — أيقونة/نص إلزامي. */
+  --color-pc-success-50: #F4FBF5;
+  --color-pc-success-100: #E9F7EA;
+  --color-pc-success-600: #1B5E20;
+  --color-pc-success-800: #134417;
+  --color-pc-warning-50: #FEF7EF;
+  --color-pc-warning-100: #FCEBD9;
+  --color-pc-warning-600: #8A4B08;
+  --color-pc-warning-800: #633606;
+  --color-pc-error-50: #FEF3F3;
+  --color-pc-error-100: #FCE4E4;
+  --color-pc-error-600: #9B2226;
+  --color-pc-error-800: #70181B;
+  --color-pc-info-50: #F1F4F7;
+  --color-pc-info-100: #CFD7E2;
+  --color-pc-info-600: #143A6C;
+  --color-pc-info-800: #0E284B;
+
+  /* ── مقياس المسافات — شبكة أساس 8px ─────────────────────────────
+     XS=4 / S=8 / M=16 / L=24 / XL=32 / XXL=48 / XXXL=64. تولّد Tailwind v4 منها
+     آليًا كلاسات p-pc-m / gap-pc-l / mt-pc-xl ... إلخ. */
+  --spacing-pc-xs: 0.25rem;
+  --spacing-pc-s: 0.5rem;
+  --spacing-pc-m: 1rem;
+  --spacing-pc-l: 1.5rem;
+  --spacing-pc-xl: 2rem;
+  --spacing-pc-xxl: 3rem;
+  --spacing-pc-xxxl: 4rem;
+
+  /* ── الطباعة ────────────────────────────────────────────────────
+     نص المحتوى ≥ 16px، النصوص المساعدة ≥ 14px، ارتفاع السطر ≥ 1.5،
+     وعناوين H1/H2 على الجوال ≥ 28px (لذلك h2 = 28px وh1 = 32px كأرضية).
+     ⚠ إعادة تعريف --text-xs مقصودة: إرشادات التصميم يحظر أي خط < 14px لنص وظيفي،
+     و106 مواضع في الكود تستخدم text-xs — رفعها هنا مرة واحدة يحقّق الامتثال
+     دون لمس 106 أسطر. text-xs صار مطابقًا لـ text-sm عمدًا. */
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+
+  --text-pc-caption: 0.875rem;
+  --text-pc-caption--line-height: 1.5;
+  --text-pc-body: 1rem;
+  --text-pc-body--line-height: 1.6;
+  --text-pc-lead: 1.125rem;
+  --text-pc-lead--line-height: 1.6;
+  --text-pc-h4: 1.25rem;
+  --text-pc-h4--line-height: 1.5;
+  --text-pc-h4--font-weight: 600;
+  --text-pc-h3: 1.5rem;
+  --text-pc-h3--line-height: 1.5;
+  --text-pc-h3--font-weight: 600;
+  --text-pc-h2: 1.75rem;
+  --text-pc-h2--line-height: 1.5;
+  --text-pc-h2--font-weight: 700;
+  --text-pc-h1: 2rem;
+  --text-pc-h1--line-height: 1.5;
+  --text-pc-h1--font-weight: 700;
+
+  /* ── نصف القطر: قيمتان كحد أقصى عبر كل المكوّنات ────────────────
+     تحديث 2026-09-14 (تدقيق التصميم): وُحِّد النظام فعليًا على قيمتين فقط —
+     pc-md (8px) للبطاقات والحقول والأزرار، وrounded-full (Tailwind) للعناصر
+     الدائرية/الحبوب. حُذفت توكنز pc-xs/pc-sm/pc-lg/pc-xl بعد استبدال كل
+     استخداماتها، حتى لا يعود أي قطر ثالث للظهور. */
+  --radius-pc-md: 0.5rem;
+
+  /* ظلال "التصميم المسطّح ببطاقات عائمة" (Flat Design + Floating Cards، 2026-09-13)
+     تولّد تلقائيًا كلاسات shadow-pc-card / shadow-pc-float / shadow-pc-modal
+     (نفس آلية --radius-pc-* ← rounded-pc-* أعلاه) — تستخدم بدل box-shadow يدوي
+     متفرق (0 3px 12px rgba(0,0,0,0.04)، 0 20px 60px rgba(0,0,0,0.2)...) في كل الصفحات.
+     تحديث 2026-09-13: اشتُقت قيم rgba من الكحلي الداكن #0B213D بدل الأزرق الرمادي. */
+  --shadow-pc-card: 0 1px 2px rgba(11, 33, 61, 0.06), 0 6px 18px -12px rgba(11, 33, 61, 0.18);
+  --shadow-pc-float: 0 10px 28px -14px rgba(11, 33, 61, 0.28), 0 3px 10px -6px rgba(11, 33, 61, 0.16);
+  --shadow-pc-modal: 0 20px 40px -8px rgba(11, 33, 61, 0.22), 0 8px 16px -8px rgba(11, 33, 61, 0.14);
+
+  /* الخط العربي المعتمد: IBM Plex Sans Arabic (محمَّل عبر next/font في app/layout.tsx) */
+  --font-arabic: var(--font-ibm-plex-arabic), 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(100%, 100vw / 120, 200%);
+}
+
+/* تقرير PDF صفحاته بأبعاد ثابتة بالبكسل (A4)، فيعود خط الجذر إلى 16px طوال وجود حاوية الالتقاط
+   المؤقتة حتى لا يتضخم النص داخل الصفحة على الشاشات الكبيرة. */
+html:has(.meeting-print-report) {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-ibm-plex-arabic), 'Segoe UI', Tahoma, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pc-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pc-brand-600);
+  border-radius: 3px;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-pc-brand-600);
+  outline-offset: 2px;
+}
+
+.pc-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  padding: 0;
+  border: 0;
+}
+
+.pc-skip-link:focus-visible {
+  position: fixed;
+  inset-inline-start: 1rem;
+  inset-block-start: 1rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+  z-index: 200;
+  background: var(--color-pc-brand-900);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pc-md);
+  font-size: 1rem;
+  box-shadow: var(--shadow-pc-modal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.meeting-print-report {
+  position: fixed;
+  right: auto;
+  left: -100000px;
+  top: 0;
+  width: 1120px;
+  pointer-events: none;
+}

@@ -1,0 +1,16 @@
+1:"$Sreact.fragment"
+3:I[97367,["/_next/static/chunks/2ont1k7citw5l.js","/_next/static/chunks/3lu4qfmirg8jp.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/2ont1k7citw5l.js","/_next/static/chunks/3lu4qfmirg8jp.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/2ont1k7citw5l.js","/_next/static/chunks/3lu4qfmirg8jp.js"],"MetadataBoundary"]
+a:I[27201,["/_next/static/chunks/2ont1k7citw5l.js","/_next/static/chunks/3lu4qfmirg8jp.js"],"IconMark"]
+7:X
+0:{"buildId":"HMrAIY3_OB21Sm2l7ZyzU","data":[{"rsc":["$","$1","c",{"children":["$L2",null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"منصة متابعة المشاريع"}],["$","meta","1",{"name":"description","content":"منصة موحدة لمتابعة تنفيذ المشاريع ومراحلها ومهامها"}],["$","link","2",{"rel":"icon","href":"/icon.svg?icon.1y_zk5gp49icg.svg","sizes":"any","type":"image/svg+xml"}],["$","$La","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@c","rootVaryParams":null,"needsRuntimeRequest":"$@d"}
+2:E{"digest":"NEXT_REDIRECT;replace;/login;307;"}
+5:null
+d:true
+7:300
+7:C
+c:0
+b:"$undefined"
+6:"$undefined"
